@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+       "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+       "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Connection settings -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">postgres</property>
+		<property name="hibernate.cahe.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+
+		<!-- SQL dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Print executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- Update database on startup -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.Vehicle" />
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.Bike" />
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.Car" />
+		
+		<!-- Annotated entity classes 
+		<mapping class="anand.unit01.embdded.User"/>
+		<mapping class="anand.unit02.collection.User"/>
+		<mapping class="anand.unit03.collection.User"/>
+		<mapping class="anand.unit04.lazyloading.User"/>
+		
+		<mapping class="anand.unit05.mapping01.one2one.case01.Student" />
+		<mapping class="anand.unit05.mapping01.one2one.case01.Laptop" />	
+		<mapping class="anand.unit05.mapping01.one2one.case02.Student" />
+		<mapping class="anand.unit05.mapping01.one2one.case02.Laptop" />	
+		<mapping class="anand.unit05.mapping01.one2one.case03.Student" />
+		<mapping class="anand.unit05.mapping01.one2one.case03.Laptop" />
+		
+		<mapping class="anand.unit05.mapping02.one2many.case01.Student" />
+		<mapping class="anand.unit05.mapping02.one2many.case01.Laptop" />	
+		<mapping class="anand.unit05.mapping02.one2many.case02.Student" />
+		<mapping class="anand.unit05.mapping02.one2many.case02.Laptop" />	
+		<mapping class="anand.unit05.mapping02.one2many.case03.Student" />
+		<mapping class="anand.unit05.mapping02.one2many.case03.Laptop" />	
+		<mapping class="anand.unit05.mapping02.one2many.case04.Student" />
+		<mapping class="anand.unit05.mapping02.one2many.case04.Laptop" />
+		
+		<mapping class="anand.unit05.mapping03.many2many.case01.Student" />
+		<mapping class="anand.unit05.mapping03.many2many.case01.Laptop" />
+		<mapping class="anand.unit05.mapping03.many2many.case02.Student" />
+		<mapping class="anand.unit05.mapping03.many2many.case02.Laptop" />	
+		<mapping class="anand.unit05.mapping03.many2many.case03.Student" />
+		<mapping class="anand.unit05.mapping03.many2many.case03.Laptop" />	
+		<mapping class="anand.unit05.mapping03.many2many.case04.Student" />
+		<mapping class="anand.unit05.mapping03.many2many.case04.Laptop" />	
+		
+		<mapping class="anand.unit06.cascade.Student" />
+		<mapping class="anand.unit06.cascade.Laptop" />
+
+		<mapping class="anand.unit07.inheritance.case01.singletable.Vehicle" />
+		<mapping class="anand.unit07.inheritance.case01.singletable.Bike" />
+		<mapping class="anand.unit07.inheritance.case01.singletable.Car" />
+		
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.Vehicle" />
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.TwoWheeler" />
+		<mapping class="anand.unit07.inheritance.case02.tableperclass.FourWheeler" />
+		
+		<mapping class="anand.unit07.inheritance.case03.joined.Vehicle" />
+		<mapping class="anand.unit07.inheritance.case03.joined.TwoWheeler" />
+		<mapping class="anand.unit07.inheritance.case03.joined.FourWheeler" />
+		
+		
+		<mapping class="kaushik.learn.criteria.pack2.InsuranceCompanyMasterModel"/>
+		<mapping class="kaushik.learn.criteria.pack2.TpaMasterModel"/>
+		<mapping class="kaushik.learn.criteria.pack2.PatientInsurancePlanModel"/>
+
+
+
+
+		<mapping class="naveen.learn.mapping.Student" />
+		<mapping class="naveen.learn.mapping.Laptop" />
+		
+		<mapping class="naveen.learn.lazy_eager.Teacher" />
+		<mapping class="naveen.learn.lazy_eager.Subject" />
+		
+		<mapping class="naveen.learn.caching.Alien" />
+		
+		<mapping class="naveen.learn.hql.Staff"/>
+		
+		
+		<mapping class="kaushik.learn.inheritance.singletable.Student"/>
+		<mapping class="kaushik.learn.inheritance.singletable.Vehicle"/>
+		<mapping class="kaushik.learn.inheritance.singletable.TwoWheeler"/>
+		<mapping class="kaushik.learn.inheritance.singletable.FourWheeler"/>
+		
+		<mapping class="kaushik.learn.inheritance.tableperclass.Student"/>
+		<mapping class="kaushik.learn.inheritance.tableperclass.Vehicle"/>
+		<mapping class="kaushik.learn.inheritance.tableperclass.TwoWheeler"/>
+		<mapping class="kaushik.learn.inheritance.tableperclass.FourWheeler"/>
+		
+		<mapping class="kaushik.learn.inheritance.joined.Student"/>
+		<mapping class="kaushik.learn.inheritance.joined.Vehicle"/>
+		<mapping class="kaushik.learn.inheritance.joined.TwoWheeler"/>
+		<mapping class="kaushik.learn.inheritance.joined.FourWheeler"/>
+		
+		<mapping class="kaushik.learn.crud.User"/>
+		
+		<mapping class="kaushik.learn.criteria.pack1.Staff"/>
+		
+		<mapping class="naveen.learn.caching.Alien" /> -->
+		
+	</session-factory>
+</hibernate-configuration>
