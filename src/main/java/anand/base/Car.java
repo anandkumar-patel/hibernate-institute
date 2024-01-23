@@ -1,4 +1,4 @@
-package anand.unit00.crud;
+package anand.base;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

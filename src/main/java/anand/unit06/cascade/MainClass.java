@@ -2,19 +2,14 @@ package anand.unit06.cascade;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 
-		Configuration configuration = new Configuration().configure();
-		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-				.applySettings(configuration.getProperties()).build();
-		SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-		mappingConcepts(sessionFactory);
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
 
 		sessionFactory.close();
 	}

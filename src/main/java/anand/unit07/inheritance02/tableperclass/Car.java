@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 public class Car extends Vehicle {
 	private int numDoors;
 	private String carType;
-	
+
 	public int getNumDoors() {
 		return numDoors;
 	}

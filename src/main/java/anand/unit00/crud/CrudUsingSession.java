@@ -3,6 +3,8 @@ package anand.unit00.crud;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import anand.base.Car;
+
 public class CrudUsingSession {
 
 	public void create(SessionFactory sessionFactory) {
