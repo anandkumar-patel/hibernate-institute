@@ -3,6 +3,7 @@ package anand.unit03.collection;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -10,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CollectionId;
@@ -27,9 +27,9 @@ public class User {
 	private int age;
 	private double salary;
 	@ElementCollection
-	@JoinTable(name = "user_address_collection2", joinColumns = @JoinColumn(name = "userid"))
-	@GenericGenerator(name="hilo-gen", strategy="hilo")
-	@CollectionId(columns = { @Column(name="address_id") }, generator = "hilo-gen", type = @Type(type="long"))
+	@CollectionTable(name = "user_address_collection2", joinColumns = @JoinColumn(name = "userid"))
+	@GenericGenerator(name="address_id_generator", strategy="increment")
+	@CollectionId(columns = { @Column(name="address_id") }, generator = "address_id_generator", type = @Type(type="long"))
 	private Collection<Address> addresses = new ArrayList<>();
 
 	public int getId() {

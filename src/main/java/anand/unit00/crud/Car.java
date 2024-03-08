@@ -1,8 +1,9 @@
-package anand.base;
+package anand.unit00.crud;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "car_unit00")
 public class Car {
 
 	@Id

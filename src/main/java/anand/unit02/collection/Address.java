@@ -5,44 +5,29 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address {
 	private int homeNo;
-	private String streetName;
-	private String cityName;
-	private String stateName;
-	private int pinCode;
+	private String city;
+	private String state;
 	public int getHomeNo() {
 		return homeNo;
 	}
 	public void setHomeNo(int homeNo) {
 		this.homeNo = homeNo;
 	}
-	public String getStreetName() {
-		return streetName;
+	public String getCity() {
+		return city;
 	}
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setCity(String city) {
+		this.city = city;
 	}
-	public String getCityName() {
-		return cityName;
+	public String getState() {
+		return state;
 	}
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
-	}
-	public String getStateName() {
-		return stateName;
-	}
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
-	}
-	public int getPinCode() {
-		return pinCode;
-	}
-	public void setPinCode(int pinCode) {
-		this.pinCode = pinCode;
+	public void setState(String state) {
+		this.state = state;
 	}
 	@Override
 	public String toString() {
-		return "Address [homeNo=" + homeNo + ", streetName=" + streetName + ", cityName=" + cityName + ", stateName="
-				+ stateName + ", pinCode=" + pinCode + "]";
+		return "Address [homeNo=" + homeNo + ", city=" + city + ", state=" + state + "]";
 	}
 
 }

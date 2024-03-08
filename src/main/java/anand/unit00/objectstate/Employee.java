@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.SelectBeforeUpdate;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee_unit00")
 @SelectBeforeUpdate
 public class Employee {
 	@Id
