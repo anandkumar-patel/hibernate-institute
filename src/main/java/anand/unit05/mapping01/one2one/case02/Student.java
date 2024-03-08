@@ -1,19 +1,12 @@
 package anand.unit05.mapping01.one2one.case02;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Student implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Entity(name = "student02")
+public class Student {
 	@Id
 	private int rollNo;
 	private String name;
@@ -53,5 +46,4 @@ public class Student implements Serializable {
 	public void setLaptop(Laptop laptop) {
 		this.laptop = laptop;
 	}
-
 }

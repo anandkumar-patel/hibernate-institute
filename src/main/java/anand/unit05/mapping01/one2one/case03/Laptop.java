@@ -1,16 +1,17 @@
 package anand.unit05.mapping01.one2one.case03;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name = "laptop03")
 public class Laptop {
 	@Id
 	private int lapId;
 	private String brandName;
 	private String modelName;
-	@OneToOne(mappedBy = "laptop")
+	@OneToOne(mappedBy = "laptop", cascade = CascadeType.ALL)
 	private Student student;
 
 	public int getLapId() {

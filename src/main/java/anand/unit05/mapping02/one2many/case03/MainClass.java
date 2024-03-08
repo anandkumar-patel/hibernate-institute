@@ -18,12 +18,12 @@ public class MainClass {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();
-		lap1.setLapId(11);
+		lap1.setLapId(12);
 		lap1.setBrandName("hp");
 		lap1.setModelName("celerio");
 		
 		Laptop lap2 = new Laptop();
-		lap2.setLapId(12);
+		lap2.setLapId(11);
 		lap2.setBrandName("dell");
 		lap2.setModelName("insprion");
 		
@@ -38,22 +38,23 @@ public class MainClass {
 		lap4.setModelName("basic");
 
 		Student student1 = new Student();
-		student1.setRollNo(1112);
-		student1.setName("urmila");
+		student1.setRollNo(1111);
+		student1.setName("Urmila");
 		student1.setMarks(800.50f);
 		student1.getLaptop().add(lap1);
-		student1.getLaptop().add(lap2);
+		student1.getLaptop().add(lap3);
 		
 		Student student2 = new Student();
-		student2.setRollNo(1113);
+		student2.setRollNo(1112);
 		student2.setName("anand");
 		student2.setMarks(500.50f);
-		student2.getLaptop().add(lap3);
-		student2.getLaptop().add(lap4);
+		student1.getLaptop().add(lap2);
+		student1.getLaptop().add(lap4);
 	
 		lap1.setStudent(student1);
-		lap2.setStudent(student1);
-		lap3.setStudent(student2);
+		lap3.setStudent(student1);
+		
+		lap2.setStudent(student2);
 		lap4.setStudent(student2);
 
 		session.beginTransaction();

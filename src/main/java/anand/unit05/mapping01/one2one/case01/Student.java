@@ -1,25 +1,20 @@
 package anand.unit05.mapping01.one2one.case01;
 
-import java.io.Serializable;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
-public class Student implements Serializable {
+@Entity(name = "student01")
+public class Student {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	private int rollNo;
 	private String name;
 	private float marks;
-	@OneToOne
-	@JoinColumn(name ="laptop_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "laptop_id")
 	private Laptop laptop;
 
 	public int getRollNo() {
@@ -53,5 +48,4 @@ public class Student implements Serializable {
 	public void setLaptop(Laptop laptop) {
 		this.laptop = laptop;
 	}
-
 }

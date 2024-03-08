@@ -25,12 +25,14 @@
 		<!-- Update database on startup -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		
-		<mapping class="anand.base.Staff"/>
 		
+		
+		<mapping class="anand.unit05.mapping01.one2one.case03.Student" />
+		<mapping class="anand.unit05.mapping01.one2one.case03.Laptop" />		
 		
 		<!-- Annotated entity classes 
 		
-		<mapping class="anand.base.Car"/>
+		<mapping class="anand.unit00.crud.Car"/>
 		<mapping class="anand.unit00.objectstate.Employee"/>
 		
 		<mapping class="anand.unit01.embdded.User"/>
@@ -78,7 +80,9 @@
 		<mapping class="anand.unit07.inheritance03.joined.Motorcycle" />
 		<mapping class="anand.unit07.inheritance03.joined.Car" />
 		
-		<mapping class="anand.base.Staff"/>
+		<mapping class="anand.unit07.inheritance04.mappedsuperclass.Student"/>
+		<mapping class="anand.unit07.inheritance04.mappedsuperclass.Teacher"/>
+		
 		
 		<mapping class="anand.unit10.cache.Alien" />
 		
