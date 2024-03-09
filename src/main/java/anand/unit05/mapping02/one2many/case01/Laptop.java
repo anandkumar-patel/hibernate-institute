@@ -3,7 +3,7 @@ package anand.unit05.mapping02.one2many.case01;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "laptop04")
 public class Laptop {
 	@Id
 	private int lapId;

@@ -18,8 +18,8 @@ public class MainClass {
 	public static void fetch(SessionFactory sf) {
 		Session session = sf.openSession();
 		
-		//Laptop lap1 = session.get(Laptop.class, 11);
-		//System.out.println("Laptop details :"+lap1.toString());
+		Laptop lap1 = session.get(Laptop.class, 11);
+		System.out.println("Laptop details :"+lap1.getModelName());
 		
 		Student st1 = session.get(Student.class, 1112);
 		System.out.println("Student Name :"+st1.getName());

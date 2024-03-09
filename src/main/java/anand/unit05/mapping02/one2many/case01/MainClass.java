@@ -9,21 +9,36 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mappingConcepts(sessionFactory);
+		mapping(sessionFactory);
+		
+		fetch(sessionFactory);
 		
 		sessionFactory.close();
 	}
 	
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void fetch(SessionFactory sf) {
+		Session session = sf.openSession();
+		
+		Laptop lap1 = session.get(Laptop.class, 11);
+		System.out.println("Laptop details :"+lap1.getModelName());
+		
+		Student st1 = session.get(Student.class, 1112);
+		System.out.println("Student Name :"+st1.getName());
+		
+		//System.out.println("Student's Laptop details :"+st1.getLaptop().get(0).getModelName());
+		
+	}
+	
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();
-		lap1.setLapId(12);
+		lap1.setLapId(11);
 		lap1.setBrandName("hp");
 		lap1.setModelName("celerio");
 		
 		Laptop lap2 = new Laptop();
-		lap2.setLapId(11);
+		lap2.setLapId(12);
 		lap2.setBrandName("dell");
 		lap2.setModelName("insprion");
 		
@@ -48,8 +63,8 @@ public class MainClass {
 		student2.setRollNo(1112);
 		student2.setName("anand");
 		student2.setMarks(500.50f);
-		student1.getLaptop().add(lap2);
-		student1.getLaptop().add(lap4);
+		student2.getLaptop().add(lap2);
+		student2.getLaptop().add(lap4);
 		
 				
 		session.beginTransaction();

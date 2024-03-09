@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
  
  
-@Entity
+@Entity(name = "student05")
 public class Student {
 	@Id
     private int rollNo;

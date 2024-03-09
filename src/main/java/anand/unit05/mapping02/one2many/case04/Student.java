@@ -3,18 +3,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
  
  
-@Entity
+@Entity(name = "student07")
 public class Student {
    
 	@Id
     private int rollNo;
     private String name;
     private float marks;
-    @OneToMany(mappedBy = "student1")
+    @OneToMany(mappedBy = "student",fetch = FetchType.EAGER)
     private List<Laptop> laptop = new ArrayList<>();
     
 	public int getRollNo() {
