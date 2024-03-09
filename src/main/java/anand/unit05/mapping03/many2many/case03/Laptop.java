@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-@Entity
+@Entity(name = "laptop10")
 public class Laptop {
 	@Id
 	private int lapId;
@@ -40,11 +40,11 @@ public class Laptop {
 		this.modelName = modelName;
 	}
 
-	public List<Student> getStudent() {
+	public List<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudent(List<Student> students) {
+	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
 }

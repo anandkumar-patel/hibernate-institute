@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-@Entity
+@Entity(name = "student11")
 public class Student {
 	@Id
 	private int rollNo;

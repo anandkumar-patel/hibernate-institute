@@ -1,5 +1,4 @@
 package anand.unit05.mapping03.many2many.case02;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,22 +9,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
  
  
-@Entity
-public class Student implements Serializable {
-     
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Entity(name = "student09")
+public class Student {
 	@Id
     private int rollNo;
     private String name;
     private float marks;
     @ManyToMany
-    @JoinTable(name = "student_laptop_mapping", 
+    @JoinTable(name = "student09_laptop09_mapping", 
     		   joinColumns = @JoinColumn(name ="student_id"),
     		   inverseJoinColumns = @JoinColumn(name = "laptop_id"))
-    private List<Laptop> laptop = new ArrayList<>();
+    private List<Laptop> laptops = new ArrayList<>();
     
 	public int getRollNo() {
 		return rollNo;
@@ -45,11 +39,11 @@ public class Student implements Serializable {
 	public void setMarks(float marks) {
 		this.marks = marks;
 	}
-	public List<Laptop> getLaptop() {
-		return laptop;
+	public List<Laptop> getLaptops() {
+		return laptops;
 	}
-	public void setLaptop(List<Laptop> laptop) {
-		this.laptop = laptop;
+	public void setLaptops(List<Laptop> laptops) {
+		this.laptops = laptops;
 	}     
     
 }

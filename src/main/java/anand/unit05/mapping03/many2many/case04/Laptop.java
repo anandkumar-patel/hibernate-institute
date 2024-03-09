@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-@Entity
+@Entity(name = "laptop11")
 public class Laptop {
 	@Id
 	private int lapId;

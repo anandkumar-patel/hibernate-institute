@@ -24,7 +24,7 @@ public class MainClass {
 		Student st1 = session.get(Student.class, 1112);
 		System.out.println("Student Name :"+st1.getName());
 		
-		System.out.println("Student's Laptop details :"+st1.getLaptop().get(0).getModelName());
+		System.out.println("Student's Laptop details :"+st1.getLaptops().get(0).getModelName());
 		
 	}
 	
@@ -55,15 +55,15 @@ public class MainClass {
 		student1.setRollNo(1111);
 		student1.setName("Urmila");
 		student1.setMarks(800.50f);
-		student1.getLaptop().add(lap1);
-		student1.getLaptop().add(lap3);
+		student1.getLaptops().add(lap1);
+		student1.getLaptops().add(lap3);
 		
 		Student student2 = new Student();
 		student2.setRollNo(1112);
 		student2.setName("anand");
 		student2.setMarks(500.50f);
-		student2.getLaptop().add(lap2);
-		student2.getLaptop().add(lap4);
+		student2.getLaptops().add(lap2);
+		student2.getLaptops().add(lap4);
 				
 		session.beginTransaction();
 

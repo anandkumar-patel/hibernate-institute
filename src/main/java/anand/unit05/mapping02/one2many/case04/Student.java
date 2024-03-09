@@ -16,7 +16,7 @@ public class Student {
     private String name;
     private float marks;
     @OneToMany(mappedBy = "student",fetch = FetchType.EAGER)
-    private List<Laptop> laptop = new ArrayList<>();
+    private List<Laptop> laptops = new ArrayList<>();
     
 	public int getRollNo() {
 		return rollNo;
@@ -36,11 +36,11 @@ public class Student {
 	public void setMarks(float marks) {
 		this.marks = marks;
 	}
-	public List<Laptop> getLaptop() {
-		return laptop;
+	public List<Laptop> getLaptops() {
+		return laptops;
 	}
-	public void setLaptop(List<Laptop> laptop) {
-		this.laptop = laptop;
+	public void setLaptops(List<Laptop> laptops) {
+		this.laptops = laptops;
 	}     
     
 }

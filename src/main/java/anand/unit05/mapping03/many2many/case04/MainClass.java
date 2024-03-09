@@ -9,11 +9,24 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mappingConcepts(sessionFactory);
+		mapping(sessionFactory);
+		fetch(sessionFactory);
+		
 		sessionFactory.close();
 	}
-
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void fetch(SessionFactory sf) {
+		Session session = sf.openSession();
+		
+		Laptop lap1 = session.get(Laptop.class, 11);
+		System.out.println("Laptop details :"+lap1.getModelName());
+		System.out.println("student linked to Laptop :"+lap1.getStudents().get(0).getName());
+		
+		Student st1 = session.get(Student.class, 1112);
+		System.out.println("Student Name :"+st1.getName());
+		System.out.println("Student's Laptop details :"+st1.getLaptops().get(0).getModelName());
+		
+	}
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();

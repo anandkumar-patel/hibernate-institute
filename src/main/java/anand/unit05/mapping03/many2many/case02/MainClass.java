@@ -13,7 +13,18 @@ public class MainClass {
 		
 		sessionFactory.close();
 	}
-	
+	public static void fetch(SessionFactory sf) {
+		Session session = sf.openSession();
+		
+		Laptop lap1 = session.get(Laptop.class, 11);
+		System.out.println("Laptop details :"+lap1.getModelName());
+		
+		Student st1 = session.get(Student.class, 1112);
+		System.out.println("Student Name :"+st1.getName());
+		
+		System.out.println("Student's Laptop details :"+st1.getLaptops().get(0).getModelName());
+		
+	}
 	public static void mappingConcepts(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
@@ -41,29 +52,29 @@ public class MainClass {
 		student1.setRollNo(1112);
 		student1.setName("anand");
 		student1.setMarks(800.50f);
-		student1.getLaptop().add(lap1);
-		student1.getLaptop().add(lap2);
+		student1.getLaptops().add(lap1);
+		student1.getLaptops().add(lap2);
 		
 		Student student2 = new Student();
 		student2.setRollNo(1113);
 		student2.setName("uday");
 		student2.setMarks(700.50f);
-		student2.getLaptop().add(lap3);
-		student2.getLaptop().add(lap4);
+		student2.getLaptops().add(lap3);
+		student2.getLaptops().add(lap4);
 		
 		Student student3 = new Student();
 		student3.setRollNo(1114);
 		student3.setName("urmila");
 		student3.setMarks(670.50f);
-		student3.getLaptop().add(lap1);
-		student3.getLaptop().add(lap2);
+		student3.getLaptops().add(lap1);
+		student3.getLaptops().add(lap2);
 		
 		Student student4 = new Student();
 		student4.setRollNo(1115);
 		student4.setName("surya");
 		student4.setMarks(900.50f);
-		student4.getLaptop().add(lap3);
-		student4.getLaptop().add(lap4);
+		student4.getLaptops().add(lap3);
+		student4.getLaptops().add(lap4);
 		
 		session.beginTransaction();
 		session.save(student1);

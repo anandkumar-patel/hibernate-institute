@@ -9,12 +9,25 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mappingConcepts(sessionFactory);
+		mapping(sessionFactory);
+		fetch(sessionFactory);
 		
 		sessionFactory.close();
 	}
-	
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void fetch(SessionFactory sf) {
+		Session session = sf.openSession();
+		
+		Laptop lap1 = session.get(Laptop.class, 11);
+		System.out.println("Laptop details :"+lap1.getModelName());
+		System.out.println("student linked to Laptop :"+lap1.getStudents().get(0).getName());
+		
+		Student st1 = session.get(Student.class, 1112);
+		System.out.println("Student Name :"+st1.getName());
+		
+		System.out.println("Student's Laptop details :"+st1.getLaptops().get(0).getModelName());
+		
+	}
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();
@@ -41,39 +54,39 @@ public class MainClass {
 		student1.setRollNo(1112);
 		student1.setName("anand");
 		student1.setMarks(800.50f);
-		student1.getLaptop().add(lap1);
-		student1.getLaptop().add(lap2);
+		student1.getLaptops().add(lap1);
+		student1.getLaptops().add(lap2);
 		
 		Student student2 = new Student();
 		student2.setRollNo(1113);
 		student2.setName("uday");
 		student2.setMarks(700.50f);
-		student2.getLaptop().add(lap3);
-		student2.getLaptop().add(lap4);
+		student2.getLaptops().add(lap3);
+		student2.getLaptops().add(lap4);
 		
 		Student student3 = new Student();
 		student3.setRollNo(1114);
 		student3.setName("urmila");
 		student3.setMarks(670.50f);
-		student3.getLaptop().add(lap1);
-		student3.getLaptop().add(lap2);
+		student3.getLaptops().add(lap1);
+		student3.getLaptops().add(lap2);
 		
 		Student student4 = new Student();
 		student4.setRollNo(1115);
 		student4.setName("surya");
 		student4.setMarks(900.50f);
-		student4.getLaptop().add(lap3);
-		student4.getLaptop().add(lap4);
+		student4.getLaptops().add(lap3);
+		student4.getLaptops().add(lap4);
 	
 
-		lap1.getStudent().add(student2);
-		lap1.getStudent().add(student3);
-		lap2.getStudent().add(student4);
-		lap2.getStudent().add(student1);
-		lap3.getStudent().add(student2);
-		lap3.getStudent().add(student3);
-		lap4.getStudent().add(student4);
-		lap4.getStudent().add(student1);
+		lap1.getStudents().add(student2);
+		lap1.getStudents().add(student3);
+		lap2.getStudents().add(student4);
+		lap2.getStudents().add(student1);
+		lap3.getStudents().add(student2);
+		lap3.getStudents().add(student3);
+		lap4.getStudents().add(student4);
+		lap4.getStudents().add(student1);
 		
 		session.beginTransaction();
 
