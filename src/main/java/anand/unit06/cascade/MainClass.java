@@ -7,14 +7,14 @@ import org.hibernate.cfg.Configuration;
 public class MainClass {
 
 	public static void main(String[] args) {
-
+		MainClass obj = new MainClass();
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
-
+		
+		obj.insertSample(sessionFactory);
 		sessionFactory.close();
 	}
 
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public void insertSample(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();
@@ -76,15 +76,15 @@ public class MainClass {
 
 		session.beginTransaction();
 
-		session.persist(student1);
-		session.persist(student2);
-		session.persist(student3);
-		session.persist(student4);
+//		session.persist(student1);
+//		session.persist(student2);
+//		session.persist(student3);
+//		session.persist(student4);
 
-//		session.save(lap1);
-//		session.save(lap2);
-//		session.save(lap3);
-//		session.save(lap4);
+		session.save(lap1);
+		session.save(lap2);
+		session.save(lap3);
+		session.save(lap4);
 
 		session.getTransaction().commit();
 		session.close();

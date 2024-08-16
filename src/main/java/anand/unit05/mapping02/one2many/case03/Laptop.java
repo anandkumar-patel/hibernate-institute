@@ -1,18 +1,18 @@
 package anand.unit05.mapping02.one2many.case03;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "laptop06")
+@Entity
+@Table(name = "laptop06")
 public class Laptop {
 	@Id
 	private int lapId;
 	private String brandName;
 	private String modelName;
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	private Student student;
 	
 	public int getLapId() {

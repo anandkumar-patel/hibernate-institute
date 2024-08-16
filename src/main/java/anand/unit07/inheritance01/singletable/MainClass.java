@@ -12,12 +12,12 @@ public class MainClass {
 		SessionFactory sessionFactory = new Configuration()
 				.configure().buildSessionFactory();
 
-		mappingConcepts(sessionFactory);
-		fetchData(sessionFactory);
+		mapping(sessionFactory);
+		fetch(sessionFactory);
 		sessionFactory.close();
 	}
 
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Car car = new Car();
@@ -42,7 +42,7 @@ public class MainClass {
 		session.close();
 	}
 
-	public static void fetchData(SessionFactory sessionFactory) {
+	public static void fetch(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 		List<Vehicle> vehicles = session.createQuery("From Vehicle", Vehicle.class).getResultList();
 		for (Vehicle vehicle : vehicles) {

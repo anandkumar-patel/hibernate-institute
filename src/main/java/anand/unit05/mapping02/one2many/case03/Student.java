@@ -1,13 +1,16 @@
 package anand.unit05.mapping02.one2many.case03;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
  
  
-@Entity(name = "student06")
+@Entity
+@Table(name = "student06")
 public class Student {
    
 	@Id
@@ -38,8 +41,14 @@ public class Student {
 	public List<Laptop> getLaptops() {
 		return laptops;
 	}
-	public void setLaptops(List<Laptop> laptops) {
-		this.laptops = laptops;
-	}     
+	
+	public void addLaptop(Laptop laptop) {
+		this.laptops.add(laptop);
+		laptop.setStudent(this);
+	}
+	public void removeLaptop(Laptop laptop) {
+		this.laptops.remove(laptop);
+		laptop.setStudent(null);
+	}
     
 }

@@ -28,4 +28,9 @@ public class Laptop {
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
+	@Override
+	public String toString() {
+		return "Laptop [lapId=" + lapId + ", brandName=" + brandName + ", modelName=" + modelName + "]";
+	}
+	
 }

@@ -2,6 +2,7 @@ package anand.unit05.mapping01.one2one.case01;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -13,7 +14,7 @@ public class Student {
 	private int rollNo;
 	private String name;
 	private float marks;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER,optional = true, orphanRemoval = false)
 	@JoinColumn(name = "laptop_id")
 	private Laptop laptop;
 
@@ -48,4 +49,11 @@ public class Student {
 	public void setLaptop(Laptop laptop) {
 		this.laptop = laptop;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", name=" + name + ", marks=" + marks + "]";
+	}
+	
+	
 }

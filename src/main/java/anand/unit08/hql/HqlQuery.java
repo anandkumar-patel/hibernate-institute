@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import anand.base.Staff;
+import anand.unit08.Staff;
 
 public class HqlQuery {
 
@@ -106,16 +106,6 @@ public class HqlQuery {
 		for (Object[] staffObj : staffs) {
 			System.out.println(staffObj[0] + " : " + staffObj[1]);
 		}
-	}
-
-	public void hqlQueryUniqeResult(Session session) {
-		System.out.println("HqlQuery : ***** hqlQueryUniqeResult() *****");
-		Query<BigDecimal> query = session.createQuery("select sum(salary) from Staff where staffId > ?0",
-				BigDecimal.class);
-		query.setParameter(0, 22);
-		BigDecimal sumSal = query.uniqueResult();
-		System.out.println("Sum of Salary :" + sumSal);
-
 	}
 
 	public void hqlQuerySingleResult(Session session) {

@@ -9,7 +9,7 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mapping(sessionFactory);
+		//mapping(sessionFactory);
 		
 		fetch(sessionFactory);
 		
@@ -19,13 +19,14 @@ public class MainClass {
 	public static void fetch(SessionFactory sf) {
 		Session session = sf.openSession();
 		
-		Laptop lap1 = session.get(Laptop.class, 11);
-		System.out.println("Laptop details :"+lap1.getModelName());
+//		Laptop lap1 = session.get(Laptop.class, 11);
+//		System.out.println("Laptop Model :"+lap1.getModelName());
+//		System.out.println("Student Name :"+lap1.getStudent().getName());
 		
-//		Student st1 = session.get(Student.class, 1112);
-//		System.out.println("Student Name :"+st1.getName());
-//		
-//		System.out.println("Student's Laptop details :"+st1.getLaptop());
+		Student st1 = session.get(Student.class, 1112);
+		System.out.println("Student's Detail :"+st1);
+		
+		System.out.println("Student's Laptop Detail :"+st1.getLaptop());
 		
 	}
 	public static void mapping(SessionFactory sessionFactory) {
@@ -60,9 +61,6 @@ public class MainClass {
 
 		session.save(student1);
 		session.save(student2);
-		
-		session.save(lap1);
-		session.save(lap2);
 
 		session.getTransaction().commit();
 		session.close();

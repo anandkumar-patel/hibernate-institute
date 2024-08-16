@@ -12,7 +12,7 @@ public class MainClass {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-		mappingConcepts(sessionFactory);
+		mapping(sessionFactory);
 		System.out.println("******* FETCHING ALL VEHICLES *******");
 		fetchVehicle(sessionFactory);
 		System.out.println("******* FETCHING ALL CARS *******");
@@ -22,7 +22,7 @@ public class MainClass {
 		sessionFactory.close();
 	}
 
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Car car = new Car();

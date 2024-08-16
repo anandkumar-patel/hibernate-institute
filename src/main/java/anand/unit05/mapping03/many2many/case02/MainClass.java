@@ -9,7 +9,7 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mappingConcepts(sessionFactory);
+		mapping(sessionFactory);
 		
 		sessionFactory.close();
 	}
@@ -25,7 +25,7 @@ public class MainClass {
 		System.out.println("Student's Laptop details :"+st1.getLaptops().get(0).getModelName());
 		
 	}
-	public static void mappingConcepts(SessionFactory sessionFactory) {
+	public static void mapping(SessionFactory sessionFactory) {
 		Session session = sessionFactory.openSession();
 
 		Laptop lap1 = new Laptop();

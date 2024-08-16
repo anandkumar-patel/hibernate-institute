@@ -9,7 +9,7 @@ public class MainClass {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		mapping(sessionFactory);
+		//mapping(sessionFactory);
 		fetch(sessionFactory);
 		
 		sessionFactory.close();
@@ -60,9 +60,6 @@ public class MainClass {
 
 		session.save(student1);
 		session.save(student2);
-		
-		session.save(lap1);
-		session.save(lap2);
 
 		session.getTransaction().commit();
 		session.close();

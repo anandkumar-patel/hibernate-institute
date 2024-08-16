@@ -8,11 +8,13 @@
 
 		<!-- Connection settings -->
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">postgres</property>
+		<!-- Set default schema -->
+		<property name="hibernate.default_schema">hibernate</property>
 		
-		<!-- <property name="hibernate.cahe.use_second_level_cache">true</property>
+<!-- 		<property name="hibernate.cahe.use_second_level_cache">true</property>
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 		<property name="hibernate.cache.use_query_cache">true</property> -->
 
@@ -23,21 +25,51 @@
 		<property name="show_sql">true</property>
 
 		<!-- Update database on startup -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+	
+		<mapping class="anand.unit05.mapping01.one2one.case01.Student" />
+		<mapping class="anand.unit05.mapping01.one2one.case01.Laptop" />	
+	
+		<!--  temporary entities..
+		<mapping class="anand.unit09.criteria.legacy.Staff"/>
 		
+		<mapping class="anand.unit05.mapping02.one2many.case04.Student" />
+		<mapping class="anand.unit05.mapping02.one2many.case04.Laptop" />	
 		
+		<mapping class="anand.unit06.cascade.master.CountryMaster" />
+		<mapping class="anand.unit06.cascade.master.StateMaster" />
+		<mapping class="anand.unit06.cascade.master.CityMaster" />
 		
-		<mapping class="anand.unit05.mapping01.one2one.case03.Student" />
-		<mapping class="anand.unit05.mapping01.one2one.case03.Laptop" />		
+		<mapping class="anand.unit06.cascade01.one2one.Post"/>
+		<mapping class="anand.unit06.cascade01.one2one.PostDetails"/>	
+		<mapping class="anand.unit06.cascade02.one2many.Post"/>
+		<mapping class="anand.unit06.cascade02.one2many.PostComment"/>
+		
+		<mapping class="anand.unit03.compositeprimarykey.idclass.Airport"/>
+		<mapping class="anand.unit03.compositeprimarykey.embeddedid.Airport"/>
+		
+		<mapping class="anand.unit08.entity.SimpleEntity"/>
+		<mapping class="anand.unit08.entity.One2OneParentEntity"/>
+		<mapping class="anand.unit08.entity.One2OneChildEntity"/>
+		<mapping class="anand.unit08.entity.One2OneParentEntity1"/>
+		<mapping class="anand.unit08.entity.One2OneChildEntity1"/>
+		<mapping class="anand.unit08.entity.One2ManyParentEntity"/>
+		<mapping class="anand.unit08.entity.One2ManyChildEntity"/>
+		<mapping class="anand.unit08.entity.Many2OneParentEntity"/>
+		<mapping class="anand.unit08.entity.Many2OneChildEntity"/> 
+		-->
 		
 		<!-- Annotated entity classes 
 		
-		<mapping class="anand.unit00.crud.Car"/>
-		<mapping class="anand.unit00.objectstate.Employee"/>
+		<mapping class="anand.u01t01.crud.Car"/>
+		<mapping class="anand.u01t02.objectstate.Employee"/>
+		<mapping class="anand.u01t03.methods.Student"/>
+		<mapping class="anand.u01t03.methods.Subject"/>
+		<mapping class="anand.u01t04.embdded.User"/>
 		
-		<mapping class="anand.unit01.embdded.User"/>
-		<mapping class="anand.unit02.collection.User"/>
-		<mapping class="anand.unit03.collection.User"/>
+		<mapping class="anand.unit02.collection01.User"/>
+		<mapping class="anand.unit02.collection01.User"/>
+		
 		<mapping class="anand.unit04.lazyloading.User"/>
 		
 		<mapping class="anand.unit05.mapping01.one2one.case01.Student" />

@@ -10,14 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-@Entity
+@Entity(name = "student_cascade")
 public class Student {
 	@Id
 	private int rollNo;
 	private String name;
 	private float marks;
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "student_laptop_mapping", 
+	@JoinTable(name = "student_laptop_cascade_mapping", 
 	joinColumns = @JoinColumn(name = "student_id"), 
 	inverseJoinColumns = @JoinColumn(name = "laptop_id"))
 	private List<Laptop> laptops = new ArrayList<>();

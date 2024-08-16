@@ -2,6 +2,7 @@ package anand.unit05.mapping02.one2many.case02;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,7 +15,7 @@ public class Student {
     private int rollNo;
     private String name;
     private float marks;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name ="student_id")
     private List<Laptop> laptops = new ArrayList<>();
     
@@ -41,6 +42,10 @@ public class Student {
 	}
 	public void setLaptops(List<Laptop> laptops) {
 		this.laptops = laptops;
-	}     
+	}  
+	
+	public void removeLaptop(Laptop laptop) {
+		laptops.remove(laptop);
+	}
     
 }

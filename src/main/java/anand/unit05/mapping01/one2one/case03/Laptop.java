@@ -1,6 +1,5 @@
 package anand.unit05.mapping01.one2one.case03;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -11,7 +10,7 @@ public class Laptop {
 	private int lapId;
 	private String brandName;
 	private String modelName;
-	@OneToOne(mappedBy = "laptop", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "laptop")
 	private Student student;
 
 	public int getLapId() {
@@ -45,4 +44,10 @@ public class Laptop {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
+	@Override
+	public String toString() {
+		return "Laptop [lapId=" + lapId + ", brandName=" + brandName + ", modelName=" + modelName + "]";
+	}
+	
 }
