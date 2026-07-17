@@ -17,6 +17,7 @@ public class MainMethod {
 		session.beginTransaction();
 		session.persist(newEmployee); // transitions to persistent state
 		Employee e2 = session.get(Employee.class, 1L);
+		System.out.println("post persist object :"+ e2);
 		session.getTransaction().commit();
 
 		session.close(); // employee object is now in detached state
@@ -35,6 +36,8 @@ public class MainMethod {
 		Employee employeeToDelete = session.get(Employee.class, 1L);
 		session.delete(employeeToDelete); // transitions to deleted state
 		session.getTransaction().commit();
+		
+		session.close();
 
 	}
 

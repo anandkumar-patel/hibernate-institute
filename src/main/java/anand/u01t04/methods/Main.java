@@ -121,7 +121,7 @@ public class Main {
 		session.close();
 	}
 	
-	public void saveAndUpdate(SessionFactory sf) {
+	public void saveOrUpdate(SessionFactory sf) {
 		Session session = sf.openSession();
 		
 		Subject hindi = new Subject(15, "history", "ramya");

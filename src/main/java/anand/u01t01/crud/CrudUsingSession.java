@@ -38,12 +38,13 @@ public class CrudUsingSession {
 		Session session = sessionFactory.openSession();
 		Car car = session.get(Car.class, model);
 		System.out.println(car.toString());
+		session.close();
 	}
 
 	public void update(SessionFactory sessionFactory, String model) {
 		Session session = sessionFactory.openSession();
 		System.out.println("Updating mustang price...");
-		Car mustang = (Car) session.get(Car.class, model);
+		Car mustang = session.get(Car.class, model);
 		mustang.setPrice("35,250.00");
 
 		session.beginTransaction();
@@ -55,7 +56,7 @@ public class CrudUsingSession {
 	public void delete(SessionFactory sessionFactory, String model) {
 		Session session = sessionFactory.openSession();
 		System.out.println("Deleting mondeo record...");
-		Car mondeo = (Car) session.get(Car.class, model);
+		Car mondeo = session.get(Car.class, model);
 
 		session.beginTransaction();
 		session.delete(mondeo);
